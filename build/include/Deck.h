@@ -11,6 +11,10 @@ class Deck {
         void printDeck();
         void shuffleDeck();
 
+        Card* deal();
+        void concat();
+
     private:
         vector<Card*> deck;
+        vector<Card*> dealt;
 };

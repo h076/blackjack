@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/Users/harry/Documents/cpp/blackjack/build",
+    "file": "CMakeFiles/blackjack.dir/main.cpp",
+    "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Library/Frameworks/SDL2.framework/Versions/A/Headers -I/Library/Frameworks/SDL2_image.framework/Versions/A/Headers -F/Library/Frameworks -std=c++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=14.1 -MD -MT CMakeFiles/blackjack.dir/main.cpp.o -MF CMakeFiles/blackjack.dir/main.cpp.o.d -o CMakeFiles/blackjack.dir/main.cpp.o -c /Users/harry/Documents/cpp/blackjack/main.cpp"
+  }
+]

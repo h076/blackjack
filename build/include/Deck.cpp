@@ -22,12 +22,14 @@ Deck::Deck() {
 }
 
 Deck::~Deck() {
+    concat();
     for(Card* c : deck) {
         delete c;
     }
 }
 
 void Deck::printDeck() {
+    cout << "printing deck ...\n";
     for(Card* c : deck) {
         cout << "s: "<< (*c).getSuit() << ", r: "<< (*c).getRank() << "\n";
     }
@@ -50,4 +52,17 @@ void Deck::shuffleDeck() {
         deck.erase(it+rand);
     }
     deck.swap(tempDeck);
+}
+
+
+Card* Deck::deal() {
+    Card* rtn;
+    rtn = deck[deck.size()-1];
+    dealt.push_back(rtn);
+    deck.pop_back();
+    return rtn;
+}
+
+void Deck::concat() {
+    deck.insert(deck.end(), dealt.begin(), dealt.end());
 }
