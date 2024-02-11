@@ -81,12 +81,12 @@ clean: CMakeFiles/blackjack.dir/clean
 CMakeFiles/blackjack.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/harry/Documents/cpp/blackjack/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target blackjack"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/harry/Documents/cpp/blackjack/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target blackjack"
 .PHONY : CMakeFiles/blackjack.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/blackjack.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harry/Documents/cpp/blackjack/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harry/Documents/cpp/blackjack/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/blackjack.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/harry/Documents/cpp/blackjack/build/CMakeFiles 0
 .PHONY : CMakeFiles/blackjack.dir/rule

@@ -8,6 +8,7 @@ class Button {
         SDL_Rect srect, drect;
         bool isSelected = false;
 
+        Button();
         Button(SDL_Renderer *);
         virtual ~Button();
 

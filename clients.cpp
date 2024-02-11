@@ -4,8 +4,13 @@
 
 using namespace std;
 
+Dealer::Dealer() {
+    // null
+}
+
 Dealer::Dealer(SDL_Renderer * ren, int h, int w) {
-    deck.shuffleDeck();
+    deck = new Deck();
+    deck->shuffleDeck();
     renderer = ren;
     screenWidth = w;
     screenHeight = h;
@@ -15,6 +20,8 @@ Dealer::Dealer(SDL_Renderer * ren, int h, int w) {
     rect.y = 10;
     rect.w = 80;
     rect.h = 160;
+    hand = {};
+    handState = PLAYING;
 }
 
 Dealer::~Dealer() {
@@ -22,7 +29,9 @@ Dealer::~Dealer() {
 }
 
 void Dealer::draw() {
-    if(hand.size() <= 2) {
+    if(hand.size() == 0) {
+        return;
+    }else if(hand.size() <= 2) {
         SDL_RenderCopy(renderer, cardBack, NULL, &rect);
         for(int i=1; i<hand.size(); i++) {
             SDL_Rect r;
@@ -39,18 +48,18 @@ void Dealer::draw() {
 }
 
 Card * Dealer::dealPlayer() {
-    return deck.deal();
+    return deck->deal();
 }
 
 void Dealer::dealHand() {
-    hand.push_back(deck.deal());
+    hand.push_back(deck->deal());
     handTotal += (*hand[hand.size()-1]).getFaceValue();
 }
 
 void Dealer::clearHand() {
     hand.clear();
-    deck.concat();
-    deck.shuffleDeck();
+    deck->concat();
+    deck->shuffleDeck();
     handTotal = 0;
 }
 
@@ -68,6 +77,22 @@ SDL_Texture * Dealer::getCardTexture(string path) {
     }
 }
 
+Options Dealer::getHandState() {
+    return handState;
+}
+
+void Dealer::setHandState(Options o) {
+    handState = o;
+}
+
+void Dealer::win() {
+    games++;
+}
+
+void Dealer::loss() {
+    games--;
+}
+
 Player::Player(SDL_Renderer * r, int h, int w) {
     renderer = r;
     screenHeight = h;
@@ -77,6 +102,8 @@ Player::Player(SDL_Renderer * r, int h, int w) {
     rect.y = (screenHeight)-170;
     rect.w = 80;
     rect.h = 160;
+    hand = {};
+    handState = WAITING;
 }
 
 Player::~Player() {
@@ -116,4 +143,20 @@ SDL_Texture * Player::getCardTexture(string path) {
     }else {
         return temp;
     }
+}
+
+Options Player::getHandState() {
+    return handState;
+}
+
+void Player::setHandState(Options o) {
+    handState = o;
+}
+
+void Player::win() {
+    games++;
+}
+
+void Player::loss() {
+    games--;
 }

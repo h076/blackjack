@@ -1,6 +1,10 @@
 #include "Button.h"
 #include "SDL2/SDL_mouse.h"
 
+Button::Button() {
+
+}
+
 Button::Button(SDL_Renderer * r) {
     renderer = r;
     static SDL_Texture * t = IMG_LoadTexture(renderer, "/include/images/button1.jpg");
@@ -9,6 +13,7 @@ Button::Button(SDL_Renderer * r) {
     srect.h = 360;
     srect.w = 450;
     srect.x = 0;
+    srect.y = 0;
 
     drect.h = 80;
     drect.w = 125;
@@ -33,6 +38,7 @@ void Button::update() {
         isSelected = false;
         srect.x = 0;
     }
+    draw();
 }
 
 void Button::draw() {

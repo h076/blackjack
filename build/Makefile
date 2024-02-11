@@ -249,6 +249,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+testGame.o: testGame.cpp.o
+.PHONY : testGame.o
+
+# target to build an object file
+testGame.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/testGame.cpp.o
+.PHONY : testGame.cpp.o
+
+testGame.i: testGame.cpp.i
+.PHONY : testGame.i
+
+# target to preprocess a source file
+testGame.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/testGame.cpp.i
+.PHONY : testGame.cpp.i
+
+testGame.s: testGame.cpp.s
+.PHONY : testGame.s
+
+# target to generate assembly for a file
+testGame.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/testGame.cpp.s
+.PHONY : testGame.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +297,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... testGame.o"
+	@echo "... testGame.i"
+	@echo "... testGame.s"
 .PHONY : help
 
 

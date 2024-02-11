@@ -11,7 +11,8 @@ set(INCLUDE_DIRECTORIES ./build/include)
 set(MAIN_SOURCE main.cpp ${INCLUDE_DIRECTORIES}/Deck.cpp ${INCLUDE_DIRECTORIES}/Deck.h
   ${INCLUDE_DIRECTORIES}/Card.cpp ${INCLUDE_DIRECTORIES}/Card.h
   Button.cpp Button.h
-  clients.cpp clients.h)
+  clients.cpp clients.h
+  game.cpp game.h)
 
 add_executable(blackjack ${MAIN_SOURCE})
 
