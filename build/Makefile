@@ -177,6 +177,30 @@ clients.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/clients.cpp.s
 .PHONY : clients.cpp.s
 
+game.o: game.cpp.o
+.PHONY : game.o
+
+# target to build an object file
+game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/game.cpp.o
+.PHONY : game.cpp.o
+
+game.i: game.cpp.i
+.PHONY : game.i
+
+# target to preprocess a source file
+game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/game.cpp.i
+.PHONY : game.cpp.i
+
+game.s: game.cpp.s
+.PHONY : game.s
+
+# target to generate assembly for a file
+game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/game.cpp.s
+.PHONY : game.cpp.s
+
 include/Card.o: include/Card.cpp.o
 .PHONY : include/Card.o
 
@@ -249,30 +273,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-testGame.o: testGame.cpp.o
-.PHONY : testGame.o
-
-# target to build an object file
-testGame.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/testGame.cpp.o
-.PHONY : testGame.cpp.o
-
-testGame.i: testGame.cpp.i
-.PHONY : testGame.i
-
-# target to preprocess a source file
-testGame.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/testGame.cpp.i
-.PHONY : testGame.cpp.i
-
-testGame.s: testGame.cpp.s
-.PHONY : testGame.s
-
-# target to generate assembly for a file
-testGame.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/blackjack.dir/build.make CMakeFiles/blackjack.dir/testGame.cpp.s
-.PHONY : testGame.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -288,6 +288,9 @@ help:
 	@echo "... clients.o"
 	@echo "... clients.i"
 	@echo "... clients.s"
+	@echo "... game.o"
+	@echo "... game.i"
+	@echo "... game.s"
 	@echo "... include/Card.o"
 	@echo "... include/Card.i"
 	@echo "... include/Card.s"
@@ -297,9 +300,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... testGame.o"
-	@echo "... testGame.i"
-	@echo "... testGame.s"
 .PHONY : help
 
 

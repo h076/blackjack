@@ -10,10 +10,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/harry/Documents/cpp/blackjack/Button.cpp" "CMakeFiles/blackjack.dir/Button.cpp.o" "gcc" "CMakeFiles/blackjack.dir/Button.cpp.o.d"
   "/Users/harry/Documents/cpp/blackjack/clients.cpp" "CMakeFiles/blackjack.dir/clients.cpp.o" "gcc" "CMakeFiles/blackjack.dir/clients.cpp.o.d"
+  "/Users/harry/Documents/cpp/blackjack/game.cpp" "CMakeFiles/blackjack.dir/game.cpp.o" "gcc" "CMakeFiles/blackjack.dir/game.cpp.o.d"
   "/Users/harry/Documents/cpp/blackjack/build/include/Card.cpp" "CMakeFiles/blackjack.dir/include/Card.cpp.o" "gcc" "CMakeFiles/blackjack.dir/include/Card.cpp.o.d"
   "/Users/harry/Documents/cpp/blackjack/build/include/Deck.cpp" "CMakeFiles/blackjack.dir/include/Deck.cpp.o" "gcc" "CMakeFiles/blackjack.dir/include/Deck.cpp.o.d"
   "/Users/harry/Documents/cpp/blackjack/main.cpp" "CMakeFiles/blackjack.dir/main.cpp.o" "gcc" "CMakeFiles/blackjack.dir/main.cpp.o.d"
-  "/Users/harry/Documents/cpp/blackjack/testGame.cpp" "CMakeFiles/blackjack.dir/testGame.cpp.o" "gcc" "CMakeFiles/blackjack.dir/testGame.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

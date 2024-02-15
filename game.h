@@ -14,6 +14,7 @@ class game {
 
         bool joinTable();
 
+        void update();
         void draw();
         void handleBtnPress();
 

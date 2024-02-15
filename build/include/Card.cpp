@@ -2,9 +2,16 @@
 #include <iostream>
 using namespace std;
 
+int Card::ID = 0;
+
+Card::Card() {
+    cardID = ID++;
+}
+
 Card::Card(Suits suit, Ranks rank) {
     this->suit = suit;
     this->rank = rank;
+    cardID = ID++;
     string subPath = "./include/images/";
     switch(rank) {
         case TWO:
@@ -241,4 +248,8 @@ int Card::getFaceValue() {
 
 string Card::getImgPath() {
     return this->imgPath;
+}
+
+int Card::getID() {
+    return cardID;
 }

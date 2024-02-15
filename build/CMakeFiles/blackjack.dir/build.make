@@ -139,19 +139,19 @@ CMakeFiles/blackjack.dir/clients.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/blackjack.dir/clients.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harry/Documents/cpp/blackjack/clients.cpp -o CMakeFiles/blackjack.dir/clients.cpp.s
 
-CMakeFiles/blackjack.dir/testGame.cpp.o: CMakeFiles/blackjack.dir/flags.make
-CMakeFiles/blackjack.dir/testGame.cpp.o: /Users/harry/Documents/cpp/blackjack/testGame.cpp
-CMakeFiles/blackjack.dir/testGame.cpp.o: CMakeFiles/blackjack.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/harry/Documents/cpp/blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/blackjack.dir/testGame.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/blackjack.dir/testGame.cpp.o -MF CMakeFiles/blackjack.dir/testGame.cpp.o.d -o CMakeFiles/blackjack.dir/testGame.cpp.o -c /Users/harry/Documents/cpp/blackjack/testGame.cpp
+CMakeFiles/blackjack.dir/game.cpp.o: CMakeFiles/blackjack.dir/flags.make
+CMakeFiles/blackjack.dir/game.cpp.o: /Users/harry/Documents/cpp/blackjack/game.cpp
+CMakeFiles/blackjack.dir/game.cpp.o: CMakeFiles/blackjack.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/harry/Documents/cpp/blackjack/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/blackjack.dir/game.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/blackjack.dir/game.cpp.o -MF CMakeFiles/blackjack.dir/game.cpp.o.d -o CMakeFiles/blackjack.dir/game.cpp.o -c /Users/harry/Documents/cpp/blackjack/game.cpp
 
-CMakeFiles/blackjack.dir/testGame.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/blackjack.dir/testGame.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harry/Documents/cpp/blackjack/testGame.cpp > CMakeFiles/blackjack.dir/testGame.cpp.i
+CMakeFiles/blackjack.dir/game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/blackjack.dir/game.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/harry/Documents/cpp/blackjack/game.cpp > CMakeFiles/blackjack.dir/game.cpp.i
 
-CMakeFiles/blackjack.dir/testGame.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/blackjack.dir/testGame.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harry/Documents/cpp/blackjack/testGame.cpp -o CMakeFiles/blackjack.dir/testGame.cpp.s
+CMakeFiles/blackjack.dir/game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/blackjack.dir/game.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/harry/Documents/cpp/blackjack/game.cpp -o CMakeFiles/blackjack.dir/game.cpp.s
 
 # Object files for target blackjack
 blackjack_OBJECTS = \
@@ -160,7 +160,7 @@ blackjack_OBJECTS = \
 "CMakeFiles/blackjack.dir/include/Card.cpp.o" \
 "CMakeFiles/blackjack.dir/Button.cpp.o" \
 "CMakeFiles/blackjack.dir/clients.cpp.o" \
-"CMakeFiles/blackjack.dir/testGame.cpp.o"
+"CMakeFiles/blackjack.dir/game.cpp.o"
 
 # External object files for target blackjack
 blackjack_EXTERNAL_OBJECTS =
@@ -170,7 +170,7 @@ blackjack: CMakeFiles/blackjack.dir/include/Deck.cpp.o
 blackjack: CMakeFiles/blackjack.dir/include/Card.cpp.o
 blackjack: CMakeFiles/blackjack.dir/Button.cpp.o
 blackjack: CMakeFiles/blackjack.dir/clients.cpp.o
-blackjack: CMakeFiles/blackjack.dir/testGame.cpp.o
+blackjack: CMakeFiles/blackjack.dir/game.cpp.o
 blackjack: CMakeFiles/blackjack.dir/build.make
 blackjack: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 blackjack: /Library/Frameworks/SDL2_image.framework/Versions/A/SDL2_image

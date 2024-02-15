@@ -35,6 +35,11 @@ bool game::joinTable() {
     return true;
 }
 
+void game::update() {
+    draw();
+    handleGameState();
+}
+
 void game::draw() {
     SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
     SDL_RenderClear(renderer);
@@ -51,40 +56,63 @@ void game::draw() {
 }
 
 void game::handleBtnPress() {
+    Player * cp = nullptr;
+    for(Player * p : players) {
+        if(p->getHandState() == PLAYING)
+            cp = p;
+    }
     if(hitBtn.isSelected) {
         cout << "player hits \n";
+        hit(cp);
     }else if(standBtn.isSelected) {
         cout << "player stands \n";
+        stand(cp);
     }
 }
 
 void game::handleGameState() {
-
+    if(gameState == START) {
+        startHand();
+        gameState = OPTIONS;
+    }else if(gameState == OPTIONS) {
+        options();
+    }else if(gameState == OUTCOME) {
+        outcomes();
+    }else if(gameState == END) {
+        endHand();
+    }
 }
 
 void game::startHand() {
     Card * tempCard = nullptr;
 
-    dealer->dealHand();
     for(Player * p : players) {
         tempCard = dealer->dealPlayer();
-        (*p).takeCard(tempCard);
+        p->takeCard(tempCard);
     }
+    dealer->dealHand();
 
-    dealer->dealHand();
     for(Player * p : players) {
         tempCard = dealer->dealPlayer();
-        (*p).takeCard(tempCard);
+        p->takeCard(tempCard);
+        p->printHand();
     }
+    dealer->dealHand();
+    dealer->printHand();
+
+
 }
 
 void game::options() {
     Player * cp = nullptr;
     for(int i=0; i<players.size(); i++) {
         cp = players[currentPlayer];
+        if(i==0 && cp->getHandState() == WAITING) {
+            cp->setHandState(PLAYING);
+        }
         if(i == currentPlayer && i+1 == players.size()) {
             if(cp->getHandState() == STAND || cp->getHandState() == BUST) {
-                outcomes();
+                gameState = OUTCOME;
             }
         }else if(i == currentPlayer) {
             if(cp->getHandState() == STAND || cp->getHandState() == BUST) {
@@ -97,34 +125,49 @@ void game::options() {
 void game::outcomes() {
     while(dealer->getHandValue() < 17) {
         dealer->dealHand();
+        draw();
         if(dealer->getHandValue()>21) {
             dealer->setHandState(BUST);
         }
     }
     for(Player * p : players) {
         if(dealer->getHandState() == BUST && p->getHandState() == STAND) {
+            cout << "dealer bust\n";
             p->win();
             dealer->loss();
-        }else if(p->getHandState() == STAND && p->getHandValue() > dealer->getHandValue()) {
-            p->win();
-            dealer->loss();
-        }else {
+        }if(p->getHandState() == BUST) {
+            cout << "player bust\n";
             p->loss();
             dealer->win();
+        }else if(p->getHandValue() > dealer->getHandValue()) {
+            cout << "player wins\n";
+            p->win();
+            dealer->loss();
+        }else if(p->getHandValue() == dealer->getHandValue()){
+            cout << "push\n";
+        }else {
+            cout << "player loss\n";
+            dealer->win();
+            p->loss();
         }
     }
+
+    gameState = END;
 }
 
 void game::endHand() {
     dealer->clearHand();
     for(Player * p : players) {
         p->clearHand();
+        p->setHandState(WAITING);
     }
+    gameState = START;
 }
 
 void game::hit(Player * p) {
     Card * tempCard = nullptr;
-    if(find(players.begin(), players.end(), p) != players.end()) {
+    if(find(players.begin(), players.end(), p) != players.end()
+       && p->getHandState() == PLAYING) {
         tempCard = dealer->dealPlayer();
         p->takeCard(tempCard);
         if(p->getHandValue() > 21) {

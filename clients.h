@@ -23,10 +23,12 @@ class Dealer {
         void win();
         void loss();
 
+        void printHand();
+
     private:
         SDL_Renderer * renderer;
         SDL_Texture * cardBack;
-        SDL_Rect rect;
+        SDL_Rect * rect;
         Deck* deck;
         vector<Card*> hand;
         Options handState;
@@ -54,11 +56,13 @@ class Player {
         void win();
         void loss();
 
+        void printHand();
     private:
         SDL_Renderer * renderer;
         SDL_Rect rect;
         vector<Card*> hand;
         Options handState;
+        bool softHand;
         int handTotal;
         int screenWidth;
         int screenHeight;

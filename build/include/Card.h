@@ -27,6 +27,7 @@ class Card {
         ACE,
     };
 
+        Card();
         Card(Suits suit, Ranks rank);
         ~Card();
 
@@ -36,8 +37,12 @@ class Card {
         int getFaceValue();
         string getImgPath();
 
+        int getID();
     private:
         Suits suit;
         Ranks rank;
         string imgPath;
+
+        int cardID;
+        static int ID;
 };

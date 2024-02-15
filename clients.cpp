@@ -16,10 +16,11 @@ Dealer::Dealer(SDL_Renderer * ren, int h, int w) {
     screenHeight = h;
     handTotal = 0;
     cardBack = IMG_LoadTexture(renderer, "/include/images/H14.jpg");
-    rect.x = (screenWidth/2)-160;
-    rect.y = 10;
-    rect.w = 80;
-    rect.h = 160;
+    rect = new SDL_Rect();
+    rect->x = (screenWidth/2)-160;
+    rect->y = 10;
+    rect->w = 80;
+    rect->h = 160;
     hand = {};
     handState = PLAYING;
 }
@@ -32,16 +33,18 @@ void Dealer::draw() {
     if(hand.size() == 0) {
         return;
     }else if(hand.size() <= 2) {
-        SDL_RenderCopy(renderer, cardBack, NULL, &rect);
+        SDL_RenderCopy(renderer, cardBack, NULL, rect);
         for(int i=1; i<hand.size(); i++) {
-            SDL_Rect r;
-            r.x = rect.x+(i*10);
+            SDL_Rect r = *rect;
+            r.x = rect->x+(i*20);
+            r.y = rect->y;
             SDL_RenderCopy(renderer, getCardTexture((*hand[i]).getImgPath()), NULL, &r);
         }
     }else if(hand.size() >= 3) {
         for(int i=0; i<hand.size(); i++) {
-            SDL_Rect r = rect;
-            r.x = rect.x+(i*10);
+            SDL_Rect r = *rect;
+            r.x = rect->x+(i*20);
+            r.y = rect->y;
             SDL_RenderCopy(renderer, getCardTexture((*hand[i]).getImgPath()), NULL, &r);
         }
     }
@@ -93,6 +96,14 @@ void Dealer::loss() {
     games--;
 }
 
+void Dealer::printHand() {
+    cout << "Dealer hand contains : ";
+    for(Card * c : hand) {
+        cout << "c " << c->getID() << ", ";
+    }
+    cout << "\n";
+}
+
 Player::Player(SDL_Renderer * r, int h, int w) {
     renderer = r;
     screenHeight = h;
@@ -104,6 +115,7 @@ Player::Player(SDL_Renderer * r, int h, int w) {
     rect.h = 160;
     hand = {};
     handState = WAITING;
+    softHand = false;
 }
 
 Player::~Player() {
@@ -114,8 +126,8 @@ void Player::draw() {
     if(hand.size() >= 1) {
         for(int i=0; i<hand.size(); i++) {
             SDL_Rect r = rect;
-            r.x = rect.x+(i*10);
-            r.x = rect.y+(i*10);
+            r.x = rect.x+(i*20);
+            r.y = rect.y-(i*20);
             SDL_RenderCopy(renderer, getCardTexture((*hand[i]).getImgPath()), NULL, &r);
         }
     }
@@ -123,6 +135,14 @@ void Player::draw() {
 
 void Player::takeCard(Card * card) {
     hand.push_back(card);
+    if(softHand && handTotal+card->getFaceValue() > 21) {
+        handTotal -= 10;
+        softHand = false;
+    }else if(card->getRank() == Card::ACE) {
+        if(handTotal+11 <= 21) {
+            softHand = true;
+        }
+    }
     handTotal += (*hand[hand.size()-1]).getFaceValue();
 }
 
@@ -159,4 +179,12 @@ void Player::win() {
 
 void Player::loss() {
     games--;
+}
+
+void Player::printHand() {
+    cout << "Player hand contains : ";
+    for(Card * c : hand) {
+        cout << "c " << c->getID() << ", ";
+    }
+    cout << "\n";
 }
